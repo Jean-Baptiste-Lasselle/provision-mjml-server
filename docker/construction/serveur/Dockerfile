@@ -18,6 +18,6 @@ RUN  yarn
 # RUN yarn dist
 
 
-EXPOSE 3000
+EXPOSE 9080
 
 CMD ["yarn", "dev"]
