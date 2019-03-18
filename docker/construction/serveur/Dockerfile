@@ -21,4 +21,4 @@ RUN mjml-server -h
 
 EXPOSE 1410
 
-CMD ["mjml-server", "-p", "1410"]
+CMD ["mjml-server", "-p", "1410", "--hostname", "0.0.0.0"]
