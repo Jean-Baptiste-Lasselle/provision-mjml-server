@@ -18,8 +18,15 @@ WORKDIR /mjml_server
 # RUN yarn
 # RUN yarn build
 
-RUN npm install mjml
-CMD ["mjml"]
+# ALTERNATIVE 
+RUN git clone https://github.com/shyim/mjml-server . 
+RUN npm install
+
+
+CMD ["node", "index.js"]
+
+# RUN npm install mjml
+# CMD ["mjml"]
 
 # https://yarnpkg.com/lang/en/docs/cli/run/
 # DEV MODE
