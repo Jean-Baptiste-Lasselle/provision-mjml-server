@@ -46,7 +46,7 @@ services:
       - ./nginx/conf.d/:/etc/nginx/conf.d/:rw
       - ./nginx/logs/:/var/log/nginx/:rw
     ports:
-      - "$NUM_PORT_ECOUTE_REVERSE_PROXY:8030"
+      - "8046:8030"
       - "2443:7443"
       - "5222:322"
     expose:
@@ -54,9 +54,9 @@ services:
       - "7443"
 #      - "322"
     environment:
-      - NGINX_HOST=$NOM_HOTE_RESEAU_ORGANISATION
+      - NGINX_HOST=kytes.io
       # 8030
-      - NGINX_PORT=$NUM_PORT_HTTP_REVERSE_PROXY_IN_CONTAINER
+      - NGINX_PORT=8030
       # $NUM_PORT_HTTPS_REVERSE_PROXY_IN_CONTAINER
       - NGINX_SSL=7443
       # $NUM_PORT_SSH_REVERSE_PROXY_IN_CONTAINER
