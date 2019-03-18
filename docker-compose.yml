@@ -21,7 +21,7 @@ services:
 #       - YELLOW_OPERATOR_USER_NAME=$YELLOW_OPERATOR_USER_NAME
     ports:
       # - $NUM_PORT_ECOUTE_FRONTEND_APPLI_VOTE:$NUM_PORT_ECOUTE_FRONTEND_APPLI_VOTE_IN_CONTAINER
-      - 5698:80
+      - 5698:3000
     expose:
       - 80/tcp
       # - 8000/tcp
