@@ -2,7 +2,7 @@ version: '3'
 
 services:
   mjml_service:
-    hostname: 'mjml.io'
+    hostname: 'mjml.kytes.io'
     container_name: "mjml-server"
     # image: theyellowdevopsteam_io/the-yellow-vote:0.0.0
     image: jbl/mjml:1.0.0
