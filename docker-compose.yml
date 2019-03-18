@@ -1,0 +1,74 @@
+version: '3'
+
+services:
+  mjml_service:
+    hostname: 'mjml.io'
+    container_name: "mjml-server"
+    # image: theyellowdevopsteam_io/the-yellow-vote:0.0.0
+    image: jbl/mjml:1.0.0
+    build: 
+      context: ./docker/construction/serveur
+      args:
+        # ENV. USINE LOGICIELLE JAUNE
+        # ADD .cle.privee.usine.jaune ./.secret
+        # - YELLOW_GIT_SECRET=$YELLOW_GIT_SECRET
+        
+# + / - => Les volumes me posent le problème suivant : ce n'est pas le user root qui agit dans le conteneur, et
+#          donc conflit de droits avec le SGF de l'hôte docker
+#     volumes:
+#       - $AVOIR:$IN_CONTAINER_WHATEVER_DIRECTORY:rw
+#     environment:
+#       - YELLOW_OPERATOR_USER_NAME=$YELLOW_OPERATOR_USER_NAME
+    ports:
+      # - $NUM_PORT_ECOUTE_FRONTEND_APPLI_VOTE:$NUM_PORT_ECOUTE_FRONTEND_APPLI_VOTE_IN_CONTAINER
+      - 5698:80
+    expose:
+      - 80/tcp
+      # - 8000/tcp
+      # pas de dépendance directe entre front et back : 
+      # => le front est une SPA,si elle peut être servie, elle le sera, et elle affichera une belle page "patientez, le backend s'initialise..."
+#     depends_on:
+      # - the_yellow_vote_back
+      # + Depuis utilisation d'un build image custom mongo avec HEALTHCHECK pour le
+      # + conteneur 'mongo-init-replica', cf. ./mongo-init-replica/construction/replicaset-health-check
+      # + mais plus depusi l'avènement du soudeur
+      # - mongo-init-replica
+    networks:
+      - "reseau_devops"
+    restart: always
+   
+  nginx:
+    image: nginx
+    hostname: "$NOM_HOTE_RESEAU_ORGANISATION"
+    container_name: "jbl_reverseproxy"
+    restart: always
+    volumes:
+      - ./nginx/conf.d/:/etc/nginx/conf.d/:rw
+      - ./nginx/logs/:/var/log/nginx/:rw
+    ports:
+      - "$NUM_PORT_ECOUTE_REVERSE_PROXY:8030"
+      - "2443:7443"
+      - "5222:322"
+    expose:
+      - "8030"
+      - "7443"
+#      - "322"
+    environment:
+      - NGINX_HOST=$NOM_HOTE_RESEAU_ORGANISATION
+      # 8030
+      - NGINX_PORT=$NUM_PORT_HTTP_REVERSE_PROXY_IN_CONTAINER
+      # $NUM_PORT_HTTPS_REVERSE_PROXY_IN_CONTAINER
+      - NGINX_SSL=7443
+      # $NUM_PORT_SSH_REVERSE_PROXY_IN_CONTAINER
+      - NGINX_SSH=322
+    networks:
+      - "$NOM_DU_RESEAU_APPLI_VOTE"
+    depends_on:
+    # Je n'aime pas trop la déclaration des ces dépendances qui n'en sont pas tant... SI le conteneurs ne sont pas UP N RUNNING, alors le reverse proxy peut prévoir une gestion d'erreurs.. À remplacer par Traefik.io, Essayer HAProxy pourquoi pas.
+      - mjml_service
+    restart: always
+
+networks:
+  # donc dans le fichier ["./.env]", on doit tropuver la déclaration de variable [NOM_DU_RESEAU_DEMO_MJML=reseau_vote_jaune]
+  reseau_devops:
+    driver: bridge
