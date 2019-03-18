@@ -62,7 +62,7 @@ services:
       # $NUM_PORT_SSH_REVERSE_PROXY_IN_CONTAINER
       - NGINX_SSH=322
     networks:
-      - "$NOM_DU_RESEAU_APPLI_VOTE"
+      - "reseau_devops"
     depends_on:
     # Je n'aime pas trop la déclaration des ces dépendances qui n'en sont pas tant... SI le conteneurs ne sont pas UP N RUNNING, alors le reverse proxy peut prévoir une gestion d'erreurs.. À remplacer par Traefik.io, Essayer HAProxy pourquoi pas.
       - mjml_service
