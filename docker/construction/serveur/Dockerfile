@@ -13,23 +13,12 @@ RUN yarn --version
 RUN mkdir /mjml_server
 WORKDIR /mjml_server
 
-# DEVELOPMENT MODE
-RUN git clone https://github.com/mjmlio/mjml . 
-RUN yarn
-RUN yarn build
+# https://github.com/Siepomaga/mjml-server
+RUN  npm install -g mjml-server
 
-# ALTERNATIVE 
-# RUN git clone https://github.com/shyim/mjml-server . 
-# RUN npm install
+RUN mjml-server -h
 
 
-EXPOSE 3000
+EXPOSE 1410
 
-# CMD ["node", "index.js"]
-
-# RUN npm install mjml
-# CMD ["mjml"]
-
-# https://yarnpkg.com/lang/en/docs/cli/run/
-# DEV MODE
-CMD ["yarn", "run"]
+CMD ["mjml-server", "-p", "1410"]
