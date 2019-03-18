@@ -14,7 +14,7 @@ RUN mkdir /mjml_server
 WORKDIR /mjml_server
 
 # DEVELOPMENT MODE
-RUN git clone https://github.com/mjmlio/mjml#installation . 
+RUN git clone https://github.com/mjmlio/mjml . 
 RUN yarn
 RUN yarn build
 
