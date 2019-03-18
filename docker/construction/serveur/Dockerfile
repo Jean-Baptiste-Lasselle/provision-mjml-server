@@ -23,6 +23,8 @@ RUN git clone https://github.com/shyim/mjml-server .
 RUN npm install
 
 
+EXPOSE 3000
+
 CMD ["node", "index.js"]
 
 # RUN npm install mjml
