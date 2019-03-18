@@ -7,18 +7,17 @@ LABEL maintainer="jean.baptiste.lasselle@gmail.com"
 # https://github.com/mjmlio/mjml#installation
 RUN apk update && apk add git yarn
 
+RUN yarn --version
 
 RUN mkdir /mjml_server
 WORKDIR /mjml_server
 
 # https://github.com/Siepomaga/mjml-server
-RUN  npm install -g mjml
-RUN  npm install mjml --save
+RUN  git clone https://github.com/mjmlio/mjml-app .
+RUN  yarn
+# RUN yarn dist
 
 
-RUN mjml-server -h
+EXPOSE 3000
 
-
-EXPOSE 1410
-
-CMD ["mjml-server", "-p", "1410", "--hostname", "0.0.0.0"]
+CMD ["yarn", "dev"]
