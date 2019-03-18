@@ -2,7 +2,7 @@ version: '3'
 
 services:
   mjml_service:
-    hostname: 'mjml.kytes.io'
+    # hostname: 'mjml.kytes.io'
     container_name: "mjml.kytes.io"
     # image: theyellowdevopsteam_io/the-yellow-vote:0.0.0
     image: jbl/mjml:1.0.0
@@ -36,38 +36,6 @@ services:
     networks:
       - "reseau_devops"
     restart: always
-   
-  nginx:
-    image: nginx
-    hostname: "$NOM_HOTE_RESEAU_ORGANISATION"
-    container_name: "jbl_reverseproxy"
-    restart: always
-    volumes:
-      - ./nginx/conf.d/:/etc/nginx/conf.d/:rw
-      - ./nginx/logs/:/var/log/nginx/:rw
-    ports:
-      - "8046:8030"
-      - "2443:7443"
-      - "5222:322"
-    expose:
-      - "8030"
-      - "7443"
-#      - "322"
-    environment:
-      - NGINX_HOST=kytes.io
-      # 8030
-      - NGINX_PORT=8030
-      # $NUM_PORT_HTTPS_REVERSE_PROXY_IN_CONTAINER
-      - NGINX_SSL=7443
-      # $NUM_PORT_SSH_REVERSE_PROXY_IN_CONTAINER
-      - NGINX_SSH=322
-    networks:
-      - "reseau_devops"
-    depends_on:
-    # Je n'aime pas trop la déclaration des ces dépendances qui n'en sont pas tant... SI le conteneurs ne sont pas UP N RUNNING, alors le reverse proxy peut prévoir une gestion d'erreurs.. À remplacer par Traefik.io, Essayer HAProxy pourquoi pas.
-      - mjml_service
-    restart: always
-
 networks:
   # donc dans le fichier ["./.env]", on doit tropuver la déclaration de variable [NOM_DU_RESEAU_DEMO_MJML=reseau_vote_jaune]
   reseau_devops:
