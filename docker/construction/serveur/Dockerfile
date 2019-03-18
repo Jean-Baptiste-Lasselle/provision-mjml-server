@@ -14,22 +14,22 @@ RUN mkdir /mjml_server
 WORKDIR /mjml_server
 
 # DEVELOPMENT MODE
-# RUN git clone https://github.com/mjmlio/mjml#installation . 
-# RUN yarn
-# RUN yarn build
+RUN git clone https://github.com/mjmlio/mjml#installation . 
+RUN yarn
+RUN yarn build
 
 # ALTERNATIVE 
-RUN git clone https://github.com/shyim/mjml-server . 
-RUN npm install
+# RUN git clone https://github.com/shyim/mjml-server . 
+# RUN npm install
 
 
 EXPOSE 3000
 
-CMD ["node", "index.js"]
+# CMD ["node", "index.js"]
 
 # RUN npm install mjml
 # CMD ["mjml"]
 
 # https://yarnpkg.com/lang/en/docs/cli/run/
 # DEV MODE
-# CMD ["yarn", "run"]
+CMD ["yarn", "run"]
