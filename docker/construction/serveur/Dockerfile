@@ -13,11 +13,12 @@ RUN mkdir /mjml_server
 WORKDIR /mjml_server
 
 # https://github.com/Siepomaga/mjml-server
-RUN  git clone https://github.com/mjmlio/mjml-app .
-RUN  yarn
+RUN git clone https://github.com/mjmlio/mjml.git .
+RUN yarn install
+RUN yarn build
 # RUN yarn dist
 
 
 EXPOSE 9080
 
-CMD ["yarn", "dev", "--host", "0.0.0.0"]
+CMD ["yarn", "start", "--host", "0.0.0.0"]
