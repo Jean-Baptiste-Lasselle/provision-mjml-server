@@ -55,7 +55,7 @@ RUN cp dist/grapesjs-mjml.min.js  .
 RUN echo " juste avant le build, vérification du code source nu : "
 RUN tree -allh
 # - et c'est parti,initialisation du projet
-RUN npm init 
+RUN npm init --yes
 RUN echo " juste avant le build, vérification du package.json généré : "
 RUN cat package.json
 RUN echo " Le build : "
