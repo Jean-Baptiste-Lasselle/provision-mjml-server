@@ -64,4 +64,4 @@ RUN npm install grapesjs-mjml --save
 EXPOSE 3000
 
 # CMD ["npm", "run", "start", "--port", "3000"]
-CMD ["node", "index.js"]
+CMD ["node", "index.js", "--host", "0.0.0.0"]
