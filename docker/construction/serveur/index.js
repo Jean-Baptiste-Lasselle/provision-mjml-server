@@ -18,8 +18,8 @@ const sgf = require('fs');
 // const hostname = '127.0.0.1';
 const hostname = process.env.HOST;
 const numeroPortMonAppli = process.env.PORT;
-const projectDir=process.env.PWD;
-const repProjet = path.resolve();
+const projectDir= process.env.PWD;
+const repProjet = process.env.PWD;
 const server = http.createServer((req, res) => {
   // console.log(" pegasus + a pris pour répertoire projet : " + projectDir + " pour travailler en NodeJS   ");
   console.log(" pegasus + La requête " + req.url + " vient d'être reçue   ");
