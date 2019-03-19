@@ -4,6 +4,7 @@
  **/
 
 const http = require('http');
+const sgf = require('fs');
 
 /**
  * Just do it : https://nodejs.org/en/docs/guides/getting-started-guide/
@@ -20,7 +21,7 @@ const numeroPortMonAppli = process.env.PORT;
 
 const server = http.createServer((req, res) => {
   console.log(" pegasus + La requête " + req.url + " vient d'être reçue   ");
-  var fluxDeLectureDeLaReponse = fs.createdReadStream(__dirName + "index.html", 'utf-8')
+  var fluxDeLectureDeLaReponse = sgf.createdReadStream(__dirName + "index.html", 'utf-8')
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
   // res.end('Hello World\n');
