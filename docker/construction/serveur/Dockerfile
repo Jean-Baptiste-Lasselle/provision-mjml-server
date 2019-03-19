@@ -13,7 +13,7 @@ RUN mkdir /mjml_server
 WORKDIR /mjml_server
 
 RUN npm init
-ADD pageaccueil.html .
+ADD index.html .
 ADD index.js .
 ADD package.json .
 RUN npm install grapesjs-mjml --save
