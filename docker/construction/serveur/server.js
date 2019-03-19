@@ -9,6 +9,8 @@ const numeroPortMonAppli = process.env.PORT;
 
 
 var app = express();
+
+app.use(express.static('.'));
 app.use(express.static('public'));
 
 var server = app.listen(numeroPortMonAppli, hostname, function(){
