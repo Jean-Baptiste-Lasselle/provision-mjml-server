@@ -20,11 +20,11 @@ const path = require('path');
 const hostname = process.env.HOST;
 const numeroPortMonAppli = process.env.PORT;
 const projectDir= process.env.PWD;
-const repProjet = path.dirname();
+const repProjet = path.dirname(".");
 const server = http.createServer((req, res) => {
   // console.log(" pegasus + a pris pour répertoire projet : " + projectDir + " pour travailler en NodeJS   ");
   console.log(" pegasus + La requête " + req.url + " vient d'être reçue   ");
-  console.log(" Verification : path=" + path.dirname());
+  console.log(" Verification : path=" + path.dirname("."));
   
   var fluxDeLectureDeLaReponse = null;
   // req.url === "/"
