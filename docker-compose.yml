@@ -21,9 +21,9 @@ services:
 #       - YELLOW_OPERATOR_USER_NAME=$YELLOW_OPERATOR_USER_NAME
     ports:
       # - $NUM_PORT_ECOUTE_FRONTEND_APPLI_VOTE:$NUM_PORT_ECOUTE_FRONTEND_APPLI_VOTE_IN_CONTAINER
-      - 5698:8080
+      - 5698:3000
     expose:
-      - 8080/tcp
+      - 3000/tcp
       # - 8000/tcp
       # pas de dépendance directe entre front et back : 
       # => le front est une SPA,si elle peut être servie, elle le sera, et elle affichera une belle page "patientez, le backend s'initialise..."
