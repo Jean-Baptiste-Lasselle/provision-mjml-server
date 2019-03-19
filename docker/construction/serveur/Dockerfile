@@ -34,7 +34,7 @@ RUN npm set init.version="$VERSION_INITIALE_DU_PROJET_PACKAGE_JSON"
 RUN mkdir /grapejs_repo
 WORKDIR /grapejs_repo
 RUN wget https://github.com/artf/grapesjs/archive/v$GRAPESJS_VERSION.zip
-RUN unzip v$GRAPESJS_VERSION.zip
+RUN unzip v$GRAPESJS_VERSION.zip || exit 1
 
 
 RUN mkdir /mjml_server
