@@ -14,11 +14,11 @@ WORKDIR /mjml_server
 
 # https://github.com/Siepomaga/mjml-server
 RUN git clone https://github.com/hubidu/email-editor .
-RUN npm install
+RUN npm run install
 # next build
-RUN npm build
+RUN npm run build
 
 
 EXPOSE 3000
 
-CMD ["npm", "start", "--port", "3000"]
+CMD ["npm", "run", "start", "--port", "3000"]
