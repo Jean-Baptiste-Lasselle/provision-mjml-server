@@ -59,7 +59,7 @@ RUN npm init --yes
 RUN echo " juste avant le build, vérification du package.json généré : "
 RUN cat package.json
 RUN echo " Le build : "
-RUN npm install grapesjs-mjml --save
+RUN npm install grapesjs-mjml
 
 
 EXPOSE 3000
