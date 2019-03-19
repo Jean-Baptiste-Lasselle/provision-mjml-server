@@ -16,6 +16,8 @@ WORKDIR /mjml_server
 RUN git clone https://github.com/ghostanza/mjml-editor .
 RUN npm install
 
-EXPOSE 3000
+EXPOSE 8080
 
-CMD ["npm", "run", "start", "--port", "3000"]
+# CMD ["npm", "run", "start", "--port", "3000"]
+CMD ["npm", "run", "start"]
+
