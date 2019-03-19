@@ -24,6 +24,6 @@ const server = http.createServer((req, res) => {
   res.end('Hello World\n');
 });
 
-server.listen(port, hostname, () => {
+server.listen(numeroPortMonAppli, hostname, () => {
   console.log(`MJML editor server is now running at http://${hostname}:${numeroPortMonAppli}/`);
 });
