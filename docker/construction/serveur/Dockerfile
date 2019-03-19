@@ -19,7 +19,7 @@ ARG NOM_DU_FICHIER_POINT_D_ENTREE=index.js
 ARG BUGS_REFERENCE_FILE=THIS_RELESASES_BUGSLIST.md
 
 
-RUN apk update && apk add git tree
+RUN apk update && apk add git tree unzip
 
 
 # Set up rapide du projet NodeJS
