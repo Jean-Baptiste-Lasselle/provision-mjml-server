@@ -44,7 +44,7 @@ RUN unzip v$GRAPESJS_VERSION.zip || exit 1
 RUN ls -allh
 
 RUN mkdir -p /mjml_server/public/grapes
-WORKDIR /grapejs_repo
+WORKDIR /mjml_server
 ADD $NOM_DU_FICHIER_POINT_D_ENTREE .
 # RUN git clone https://github.com/artf/grapesjs-mjml   
 #     https://github.com/artf/grapesjs-mjml  >>>  que j'ai importé dans https://github.com/Jean-Baptiste-Lasselle/grapesjs-mjml
@@ -52,7 +52,7 @@ ADD $NOM_DU_FICHIER_POINT_D_ENTREE .
 
 # =>> ces fichiers sont les fichiers chargés par le index.html
 ADD index.html .
-RUN mv index.html  ./public/grapes
+RUN cp ./index.html  ./public/grapes
 RUN cp /grapejs_repo/grapesjs-$GRAPESJS_VERSION/dist/grapes.min.js ./public/grapes
 RUN cp /grapejs_repo/grapesjs-$GRAPESJS_VERSION/dist/css/grapes.min.css ./public/grapes
 RUN cp /grapejs_mjml_module_repo/v$GRAPESJS_MJML_MODULE_VERSION/dist/grapesjs-mjml.min.js ./public
