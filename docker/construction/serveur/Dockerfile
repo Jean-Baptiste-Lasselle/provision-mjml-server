@@ -62,9 +62,9 @@ RUN npm install grapesjs-mjml --save
 
 
 EXPOSE 3000
-# ENTRYPOINT ["PORT", "=", "3000"] 
-# CMD ["npm", "run", "start", "--port", "3000"]
 
+# https://medium.com/the-node-js-collection/making-your-node-js-work-everywhere-with-environment-variables-2da8cdf6e786
 ENV HOST=0.0.0.0
 ENV PORT=3000
+
 CMD ["node", "index.js"]
