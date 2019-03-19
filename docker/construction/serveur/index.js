@@ -18,10 +18,10 @@ const sgf = require('fs');
 // const hostname = '127.0.0.1';
 const hostname = process.env.HOST;
 const numeroPortMonAppli = process.env.PORT;
-
+const projectDir=process.env.PWD;
 const server = http.createServer((req, res) => {
   console.log(" pegasus + La requête " + req.url + " vient d'être reçue   ");
-  var fluxDeLectureDeLaReponse = sgf.createdReadStream(__dirName + "index.html", 'utf-8')
+  var fluxDeLectureDeLaReponse = sgf.createdReadStream(projectDir + "index.html", 'utf-8')
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
   // res.end('Hello World\n');
