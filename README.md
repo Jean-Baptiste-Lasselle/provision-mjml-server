@@ -28,7 +28,6 @@ docker-compose up -d --force-recreate --build
 * Cycle IAAC
 
 ```bash
-git pull && docker-compose down --rmi all && docker-compose up -d --force-recreate --build 
-docker logs -f mjml_service
+git pull && docker-compose down --rmi all && git pull && docker-compose down --rmi all && docker-compose up -d --force-recreate --build && docker logs -f mjml.kytes.io
 ```
 
