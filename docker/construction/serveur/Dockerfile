@@ -12,9 +12,13 @@ RUN yarn --version
 RUN mkdir /mjml_server
 WORKDIR /mjml_server
 
-# https://github.com/ghostanza/mjml-editor
-RUN git clone https://github.com/ghostanza/mjml-editor .
-RUN npm install
+RUN npm init
+ADD pageaccueil.html .
+ADD index.js .
+ADD package.json .
+RUN npm install grapesjs-mjml --save
+
+
 
 EXPOSE 8080
 
