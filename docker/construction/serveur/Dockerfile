@@ -55,7 +55,7 @@ ADD index.html .
 RUN cp ./index.html  ./public/grapes
 RUN cp /grapejs_repo/grapesjs-$GRAPESJS_VERSION/dist/grapes.min.js ./public/grapes
 RUN cp /grapejs_repo/grapesjs-$GRAPESJS_VERSION/dist/css/grapes.min.css ./public/grapes
-RUN cp /grapejs_mjml_module_repo/grapesjs-mjml-v$GRAPESJS_MJML_MODULE_VERSION/dist/grapesjs-mjml.min.js ./public
+RUN cp /grapejs_mjml_module_repo/grapesjs-mjml-$GRAPESJS_MJML_MODULE_VERSION/dist/grapesjs-mjml.min.js ./public
 RUN echo " juste avant le build, vérification du code source nu : "
 RUN tree -allh
 # - et c'est parti,initialisation du projet
