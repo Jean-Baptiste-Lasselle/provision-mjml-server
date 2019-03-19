@@ -8,7 +8,7 @@ ARG GRAPESJS_VERSION=0.14.50
 
 
 # Config NPM INIT du projet NodeJS
-ARG NOM_DU_PROJET="Pegasus' MJML Editor"
+ARG NOM_DU_PROJET="pegasus-mjml-editor"
 ARG EMAIL_AUTEUR_DU_PROJET="jean.baptiste.lasselle@gmail.com"
 ARG NOM_AUTEUR_DU_PROJET="Jean-Baptiste Lasselle"
 ARG LICENCE_DU_PROJET="GNU LGPLv3 wtf"
