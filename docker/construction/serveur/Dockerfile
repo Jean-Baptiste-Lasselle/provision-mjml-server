@@ -19,6 +19,6 @@ RUN yarn build
 # RUN yarn dist
 
 
-EXPOSE 9080
+EXPOSE 3000
 
 CMD ["yarn", "start", "--host", "0.0.0.0"]
