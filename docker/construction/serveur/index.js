@@ -31,7 +31,7 @@ const server = http.createServer((req, res) => {
        fluxDeLectureDeLaReponse = sgf.createReadStream(req.url, 'utf-8');
   }
   // var fluxDeLectureDeLaReponse = sgf.createReadStream(req.url if ()+ "./index.html", 'utf-8');
-  var fluxDeLectureDeLaReponse = sgf.createReadStream(req.url + "./index.html", 'utf-8');
+  var fluxDeLectureDeLaReponse = sgf.createReadStream(req.url + "/index.html", 'utf-8');
   
   
   res.statusCode = 200;
