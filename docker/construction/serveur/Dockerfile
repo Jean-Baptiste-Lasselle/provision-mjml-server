@@ -15,7 +15,8 @@ WORKDIR /mjml_server
 # https://github.com/Siepomaga/mjml-server
 RUN git clone https://github.com/hubidu/email-editor .
 RUN npm install
-RUN npm install nodegit
+# https://github.com/nodegit/nodegit/issues/1361#issuecomment-356791602
+RUN BUILD_ONLY=true npm install nodegit
 # next build
 RUN npm run build
 
