@@ -5,6 +5,7 @@
 
 const http = require('http');
 const sgf = require('fs');
+const path = require('path');
 
 /**
  * Just do it : https://nodejs.org/en/docs/guides/getting-started-guide/
@@ -19,18 +20,19 @@ const sgf = require('fs');
 const hostname = process.env.HOST;
 const numeroPortMonAppli = process.env.PORT;
 const projectDir= process.env.PWD;
-const repProjet = process.env.PWD;
+const repProjet = path.dirname();
 const server = http.createServer((req, res) => {
   // console.log(" pegasus + a pris pour répertoire projet : " + projectDir + " pour travailler en NodeJS   ");
   console.log(" pegasus + La requête " + req.url + " vient d'être reçue   ");
+  console.log(" Verification : path=" + path.dirname());
   
   var fluxDeLectureDeLaReponse = null;
   // req.url === "/"
   if (new String(req.url).valueOf() == new String("/").valueOf()) {
-       console.log(" pegasus + LA requête demandée est la RACINE du site, je vais donc renvoyer ./index.html");
+       console.log(" pegasus + La requête demandée est la RACINE du site, je vais donc renvoyer ./index.html");
        fluxDeLectureDeLaReponse = sgf.createReadStream("./index.html", 'utf-8');
   } else {
-       console.log(" pegasus + LA requête demandée est la RACINE du site, je vais donc renvoyer " + req.url);
+       console.log(" pegasus + La requête demandée est la RACINE du site, je vais donc renvoyer " + req.url);
        fluxDeLectureDeLaReponse = sgf.createReadStream(req.url, 'utf-8');
   }
   // var fluxDeLectureDeLaReponse = sgf.createReadStream(req.url if ()+ "./index.html", 'utf-8');
