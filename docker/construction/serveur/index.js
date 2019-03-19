@@ -21,7 +21,7 @@ const numeroPortMonAppli = process.env.PORT;
 const projectDir=process.env.PWD;
 const server = http.createServer((req, res) => {
   console.log(" pegasus + La requête " + req.url + " vient d'être reçue   ");
-  var fluxDeLectureDeLaReponse = sgf.createdReadStream(projectDir + "index.html", 'utf-8')
+  var fluxDeLectureDeLaReponse = sgf.createReadStream(projectDir + "index.html", 'utf-8')
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
   // res.end('Hello World\n');
