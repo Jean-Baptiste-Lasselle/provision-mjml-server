@@ -25,7 +25,7 @@ const server = http.createServer((req, res) => {
   console.log(" pegasus + La requête " + req.url + " vient d'être reçue   ");
   
   var fluxDeLectureDeLaReponse = null;
-  if (req.url = "/") {
+  if (req.url === "/") {
        fluxDeLectureDeLaReponse = sgf.createReadStream("./index.html", 'utf-8');
   } else {
        fluxDeLectureDeLaReponse = sgf.createReadStream(req.url, 'utf-8');
