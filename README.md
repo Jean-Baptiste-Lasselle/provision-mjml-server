@@ -3,7 +3,8 @@ Une recette de provision de https://github.com/mjmlio/mjml#installation
 Il s'avère que ce composant est certainement destiné à être utilisé en ligne d commande.
 Ce que je cherche à avoir, c'est un Web editor MJML, t j'en ai trouvé un : 
 
-* https://github.com/sm0g/mjml-editor
+* https://github.com/sm0g/mjml-editor   celui ci me paraît le candidat le plus sérieux, il est publié avec une présentation PDF `Serverless MJML Editor`, dont j'ai gardé dans ce repo une partie : https://github.com/Jean-Baptiste-Lasselle/provision-mjml-server/raw/master/documentations/images/Serverless%20MJML%20editor.pdf
+
 * https://github.com/ghostanza/mjml-editor
 * https://github.com/hubidu/email-editor
 * https://github.com/danielweinmann/react-email-editor
