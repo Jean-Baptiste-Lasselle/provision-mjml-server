@@ -19,11 +19,13 @@ const sgf = require('fs');
 const hostname = process.env.HOST;
 const numeroPortMonAppli = process.env.PORT;
 const projectDir=process.env.PWD;
+const repProjet = path.resolve();
 const server = http.createServer((req, res) => {
   // console.log(" pegasus + a pris pour répertoire projet : " + projectDir + " pour travailler en NodeJS   ");
   console.log(" pegasus + La requête " + req.url + " vient d'être reçue   ");
   
-  var fluxDeLectureDeLaReponse = sgf.createReadStream("./index.html", 'utf-8')
+  var fluxDeLectureDeLaReponse = sgf.createReadStream(repProjet + "./index.html", 'utf-8');
+  
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/html');
   res.setHeader('charset', 'utf-8');
