@@ -21,4 +21,4 @@ RUN yarn build
 
 EXPOSE 3000
 
-CMD ["yarn", "start", "--host", "0.0.0.0"]
+CMD ["yarn", "run", "--host", "0.0.0.0"]
