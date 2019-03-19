@@ -42,7 +42,7 @@ WORKDIR /mjml_server
 
 # RUN git clone https://github.com/artf/grapesjs-mjml   
 #     https://github.com/artf/grapesjs-mjml  >>>  que j'ai importé dans https://github.com/Jean-Baptiste-Lasselle/grapesjs-mjml
-RUN git clone https://github.com/Jean-Baptiste-Lasselle/grapesjs-mjml .
+# RUN git clone https://github.com/Jean-Baptiste-Lasselle/grapesjs-mjml .
 
 # =>> ces fichiers déterminent donc les chemins relatifs de fichiers référecnés dans le index.html
 ADD index.html .
