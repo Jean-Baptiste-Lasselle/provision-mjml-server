@@ -19,9 +19,12 @@ const hostname = process.env.HOST;
 const numeroPortMonAppli = process.env.PORT;
 
 const server = http.createServer((req, res) => {
+  console.log(" pegasus + La requête " + req.url + " vient d'être reçue   ");
+  var fluxDeLectureDeLaReponse = fs.createdReadStream(__dirName + "index.html", 'utf-8')
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n');
+  // res.end('Hello World\n');
+  fluxDeLectureDeLaReponse.pipe(res);
 });
 
 server.listen(numeroPortMonAppli, hostname, () => {
