@@ -4,8 +4,9 @@ Il s'avère que ce composant est certainement destiné à être utilisé en lign
 Ce que je cherche à avoir, c'est un Web editor MJML, t j'en ai trouvé un : 
 
 * https://github.com/sm0g/mjml-editor
-* https://github.com/sm0g/mjml-editor
+* https://github.com/ghostanza/mjml-editor
 * https://github.com/hubidu/email-editor
+* https://github.com/danielweinmann/react-email-editor
 
 
 
