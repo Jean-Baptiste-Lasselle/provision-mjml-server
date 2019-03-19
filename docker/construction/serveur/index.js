@@ -33,7 +33,7 @@ const server = http.createServer((req, res) => {
        fluxDeLectureDeLaReponse = sgf.createReadStream("./index.html", 'utf-8');
   } else {
        console.log(" pegasus + La requête demandée n'est PAS la RACINE du site, je vais donc renvoyer " + req.url);
-       fluxDeLectureDeLaReponse = sgf.createReadStream(req.url, 'utf-8');
+       fluxDeLectureDeLaReponse = sgf.createReadStream("." + req.url, 'utf-8');
   }
   
   
