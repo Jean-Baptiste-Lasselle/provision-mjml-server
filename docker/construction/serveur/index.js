@@ -27,8 +27,10 @@ const server = http.createServer((req, res) => {
   var fluxDeLectureDeLaReponse = null;
   // req.url === "/"
   if (new String(req.url).valueOf() == new String("/").valueOf()) {
+       console.log(" pegasus + LA requête demandée est la RACINE du site, je vais donc renvoyer ./index.html");
        fluxDeLectureDeLaReponse = sgf.createReadStream("./index.html", 'utf-8');
   } else {
+       console.log(" pegasus + LA requête demandée est la RACINE du site, je vais donc renvoyer " + req.url);
        fluxDeLectureDeLaReponse = sgf.createReadStream(req.url, 'utf-8');
   }
   // var fluxDeLectureDeLaReponse = sgf.createReadStream(req.url if ()+ "./index.html", 'utf-8');
