@@ -57,7 +57,10 @@ RUN npm init --yes
 RUN echo " juste avant le build, vérification du package.json généré : "
 RUN cat package.json
 RUN echo " Le build : "
-RUN npm install grapesjs-mjml --save
+# RUN npm install grapesjs-mjml --save
+RUN npm i grapesjs-mjml
+RUN echo " juste après installation de [grapesjs-mjml], où est le fichier [grapesjs-mjml.min.js] ? "
+RUN tree -allh
 # J'installe aussi express pour servir un site internet statique
 RUN npm install express --save
 
