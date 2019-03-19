@@ -51,7 +51,7 @@ ADD $NOM_DU_FICHIER_POINT_D_ENTREE .
 # RUN git clone https://github.com/Jean-Baptiste-Lasselle/grapesjs-mjml .
 
 # =>> ces fichiers sont les fichiers chargés par le index.html
-ADD index.html
+ADD index.html .
 RUN mv index.html  ./public/grapes
 RUN cp /grapejs_repo/grapesjs-$GRAPESJS_VERSION/dist/grapes.min.js ./public/grapes
 RUN cp /grapejs_repo/grapesjs-$GRAPESJS_VERSION/dist/css/grapes.min.css ./public/grapes
