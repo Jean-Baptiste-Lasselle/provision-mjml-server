@@ -14,7 +14,7 @@ ARG NOM_AUTEUR_DU_PROJET="Jean-Baptiste Lasselle"
 ARG LICENCE_DU_PROJET="GNU LGPLv3 wtf"
 ARG VERSION_INITIALE_DU_PROJET_PACKAGE_JSON=0.2.0
 ARG MOTS_CLES_SEMANTIQUE_PROJET="mjml, editor, email, template"
-ARG NOM_DU_FICHIER_POINT_D_ENTREE=index.js
+ARG NOM_DU_FICHIER_POINT_D_ENTREE=server.js
 # le nom du fichier de coueemntation précisant les bugs, bref il s'agti de traçabilité du traitment des bugs
 ARG BUGS_REFERENCE_FILE=THIS_RELESASES_BUGSLIST.md
 
@@ -46,7 +46,7 @@ WORKDIR /mjml_server
 
 # =>> ces fichiers déterminent donc les chemins relatifs de fichiers référecnés dans le index.html
 ADD index.html .
-ADD index.js .
+ADD $NOM_DU_FICHIER_POINT_D_ENTREE .
 RUN mkdir -p grapesjs/
 RUN cp /grapejs_repo/grapesjs-$GRAPESJS_VERSION/dist/grapes.min.js grapesjs/
 RUN cp /grapejs_repo/grapesjs-$GRAPESJS_VERSION/dist/css/grapes.min.css grapesjs/
