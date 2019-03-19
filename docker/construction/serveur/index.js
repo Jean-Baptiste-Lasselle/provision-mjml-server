@@ -24,7 +24,15 @@ const server = http.createServer((req, res) => {
   // console.log(" pegasus + a pris pour répertoire projet : " + projectDir + " pour travailler en NodeJS   ");
   console.log(" pegasus + La requête " + req.url + " vient d'être reçue   ");
   
-  var fluxDeLectureDeLaReponse = sgf.createReadStream(repProjet + "./index.html", 'utf-8');
+  var fluxDeLectureDeLaReponse = null;
+  if (req.url = "/") {
+       fluxDeLectureDeLaReponse = sgf.createReadStream("./index.html", 'utf-8');
+  } else {
+       fluxDeLectureDeLaReponse = sgf.createReadStream(req.url, 'utf-8');
+  }
+  // var fluxDeLectureDeLaReponse = sgf.createReadStream(req.url if ()+ "./index.html", 'utf-8');
+  var fluxDeLectureDeLaReponse = sgf.createReadStream(req.url + "./index.html", 'utf-8');
+  
   
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/html');
