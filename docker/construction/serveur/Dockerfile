@@ -69,6 +69,13 @@ RUN echo " juste après installation de [grapesjs-mjml], où est le fichier [gra
 RUN tree -allh
 # J'installe aussi express pour servir un site internet statique
 RUN npm install express --save
+RUN mkdir -p ./fonts
+RUN npm install font-awesome --save
+RUN echo "vérification du contenu de ./node_modules/font-awesome : "
+RUN ls -allh ./node_modules/font-awesome
+RUN cp -Rf ./node_modules/font-awesome/css/* ./fonts
+RUN cp -Rf ./node_modules/font-awesome/fonts/* ./fonts
+
 
 
 EXPOSE 3000
