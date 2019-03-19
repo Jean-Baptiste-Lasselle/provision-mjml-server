@@ -25,7 +25,9 @@ const server = http.createServer((req, res) => {
   
   var fluxDeLectureDeLaReponse = sgf.createReadStream("./index.html", 'utf-8')
   res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
+  res.setHeader('Content-Type', 'text/html');
+  res.setHeader('charset', 'utf-8');
+  
   // res.end('Hello World\n');
   fluxDeLectureDeLaReponse.pipe(res);
 });
