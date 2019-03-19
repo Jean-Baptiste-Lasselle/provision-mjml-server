@@ -5,8 +5,7 @@ LABEL maintainer="jean.baptiste.lasselle@gmail.com"
 
 # VERSION GRAPEJS
 ARG GRAPESJS_VERSION=0.14.50
-
-
+ARG GRAPESJS_MJML_MODULE_VERSION=0.0.31
 # Config NPM INIT du projet NodeJS
 ARG NOM_DU_PROJET="pegasus-mjml-editor"
 ARG EMAIL_AUTEUR_DU_PROJET="jean.baptiste.lasselle@gmail.com"
@@ -30,6 +29,13 @@ RUN npm set init.license "$LICENCE_DU_PROJET"
 RUN npm set init.version="$VERSION_INITIALE_DU_PROJET_PACKAGE_JSON"
 
 
+RUN mkdir -p /grapejs_mjml_module_repo
+WORKDIR /grapejs_mjml_module_repo
+RUN wget https://github.com/artf/grapesjs-mjml/archive/v$GRAPESJS_MJML_MODULE_VERSION.zip
+RUN unzip v$GRAPESJS_MJML_MODULE_VERSION.zip || exit 1
+RUN ls -allh
+
+
 
 RUN mkdir -p /grapejs_repo
 WORKDIR /grapejs_repo/
@@ -44,11 +50,12 @@ ADD $NOM_DU_FICHIER_POINT_D_ENTREE .
 #     https://github.com/artf/grapesjs-mjml  >>>  que j'ai importé dans https://github.com/Jean-Baptiste-Lasselle/grapesjs-mjml
 # RUN git clone https://github.com/Jean-Baptiste-Lasselle/grapesjs-mjml .
 
-# =>> ces fichiers déterminent donc les chemins relatifs de fichiers référencés dans le index.html
+# =>> ces fichiers sont les fichiers chargés par le index.html
 ADD index.html
 RUN mv index.html  ./public/grapes
 RUN cp /grapejs_repo/grapesjs-$GRAPESJS_VERSION/dist/grapes.min.js ./public/grapes
 RUN cp /grapejs_repo/grapesjs-$GRAPESJS_VERSION/dist/css/grapes.min.css ./public/grapes
+RUN cp /grapejs_mjml_module_repo/v$GRAPESJS_MJML_MODULE_VERSION/dist/grapesjs-mjml.min.js ./public
 
 RUN echo " juste avant le build, vérification du code source nu : "
 RUN tree -allh
