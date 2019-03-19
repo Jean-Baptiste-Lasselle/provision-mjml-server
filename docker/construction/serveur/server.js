@@ -13,6 +13,6 @@ app.use(express.static('.'));
 
 var server = app.listen(numeroPortMonAppli, hostname, function(){
     var numport = server.address().port;
-    var nomReseau = server.address();
+    var nomReseau = server.address().address;
     console.log("Server started at http://" + nomReseau + ":%s", numport);
 });
