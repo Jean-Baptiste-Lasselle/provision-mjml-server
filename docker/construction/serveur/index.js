@@ -32,11 +32,10 @@ const server = http.createServer((req, res) => {
        console.log(" pegasus + La requête demandée est la RACINE du site, je vais donc renvoyer ./index.html");
        fluxDeLectureDeLaReponse = sgf.createReadStream("./index.html", 'utf-8');
   } else {
-       console.log(" pegasus + La requête demandée est la RACINE du site, je vais donc renvoyer " + req.url);
+       console.log(" pegasus + La requête demandée n'est PAS la RACINE du site, je vais donc renvoyer " + req.url);
        fluxDeLectureDeLaReponse = sgf.createReadStream(req.url, 'utf-8');
   }
-  // var fluxDeLectureDeLaReponse = sgf.createReadStream(req.url if ()+ "./index.html", 'utf-8');
-  var fluxDeLectureDeLaReponse = sgf.createReadStream(req.url + "/index.html", 'utf-8');
+  
   
   
   res.statusCode = 200;
