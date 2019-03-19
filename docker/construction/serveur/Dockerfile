@@ -20,4 +20,4 @@ RUN  yarn
 
 EXPOSE 9080
 
-CMD ["yarn", "dev"]
+CMD ["yarn", "dev", "--host", "0.0.0.0"]
