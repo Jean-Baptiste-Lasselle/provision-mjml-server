@@ -14,7 +14,7 @@ WORKDIR /mjml_server
 
 # https://github.com/Siepomaga/mjml-server
 RUN git clone https://github.com/hubidu/email-editor .
-RUN npm run install
+RUN npm install
 # next build
 RUN npm run build
 
