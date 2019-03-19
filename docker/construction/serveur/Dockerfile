@@ -50,7 +50,6 @@ ADD index.js .
 RUN mkdir -p grapesjs/
 RUN cp /grapejs_repo/grapesjs-$GRAPESJS_VERSION/dist/grapes.min.js grapesjs/
 RUN cp /grapejs_repo/grapesjs-$GRAPESJS_VERSION/dist/css/grapes.min.css grapesjs/
-RUN cp dist/grapesjs-mjml.min.js  .
 
 RUN echo " juste avant le build, vérification du code source nu : "
 RUN tree -allh
@@ -59,7 +58,7 @@ RUN npm init --yes
 RUN echo " juste avant le build, vérification du package.json généré : "
 RUN cat package.json
 RUN echo " Le build : "
-RUN npm install grapesjs-mjml
+RUN npm install grapesjs-mjml --save
 
 
 EXPOSE 3000
