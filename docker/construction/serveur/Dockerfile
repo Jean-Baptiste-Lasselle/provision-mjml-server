@@ -4,7 +4,7 @@ MAINTAINER Jean-Baptiste Lasselle
 LABEL maintainer="jean.baptiste.lasselle@gmail.com"
 
 # VERSION GRAPEJS
-arg GRAPESJS_VERSION=0.14.50
+ARG GRAPESJS_VERSION=0.14.50
 
 
 # Config NPM INIT du projet NodeJS
