@@ -15,7 +15,8 @@ WORKDIR /mjml_server
 # https://github.com/Siepomaga/mjml-server
 RUN git clone https://github.com/hubidu/email-editor .
 RUN npm install
-# RUN yarn dist
+# next build
+RUN npm build
 
 
 EXPOSE 3000
