@@ -59,6 +59,8 @@ RUN echo " juste avant le build, vérification du package.json généré : "
 RUN cat package.json
 RUN echo " Le build : "
 RUN npm install grapesjs-mjml --save
+# J'installe aussi express pour servir un site internet statique
+RUN npm install express --save
 
 
 EXPOSE 3000
