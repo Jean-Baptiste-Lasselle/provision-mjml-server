@@ -1,7 +1,3 @@
-
-
-
-
 FROM node:8.15.1-alpine
 
 MAINTAINER Jean-Baptiste Lasselle
@@ -17,7 +13,7 @@ RUN mkdir /mjml_server
 WORKDIR /mjml_server
 
 # https://github.com/Siepomaga/mjml-server
-RUN git clone https://github.com/artf/grapesjs-mjml .
+RUN git clone https://github.com/hubidu/email-editor .
 RUN npm install
 # RUN yarn dist
 
