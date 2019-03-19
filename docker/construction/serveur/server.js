@@ -9,7 +9,7 @@ const numeroPortMonAppli = process.env.PORT;
 
 
 var app = express();
-app.use(express.static('grapesjs'));
+app.use(express.static('.'));
 
 var server = app.listen(numeroPortMonAppli, hostname, function(){
     var numport = server.address().port;
