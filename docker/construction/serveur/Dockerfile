@@ -1,5 +1,5 @@
 
-https://github.com/artf/grapesjs-mjml
+
 
 
 FROM node:8.15.1-alpine
@@ -17,12 +17,11 @@ RUN mkdir /mjml_server
 WORKDIR /mjml_server
 
 # https://github.com/Siepomaga/mjml-server
-RUN git clone https://github.com/mjmlio/mjml.git .
-RUN yarn install
-RUN yarn build
+RUN git clone https://github.com/artf/grapesjs-mjml .
+RUN npm install
 # RUN yarn dist
 
 
 EXPOSE 3000
 
-CMD ["yarn", "run"]
+CMD ["npm", "start", "--port", "3000"]
