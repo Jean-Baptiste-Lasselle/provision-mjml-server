@@ -48,8 +48,8 @@ RUN git clone https://github.com/Jean-Baptiste-Lasselle/grapesjs-mjml .
 ADD index.html .
 ADD index.js .
 RUN mkdir -p grapesjs/
-RUN cp /grapejs_repo/v$GRAPESJS_VERSION/dist/grapes.min.js grapesjs/
-RUN cp /grapejs_repo/v$GRAPESJS_VERSION/dist/css/grapes.min.css grapesjs/
+RUN cp /grapejs_repo/grapesjs-$GRAPESJS_VERSION/dist/grapes.min.js grapesjs/
+RUN cp /grapejs_repo/grapesjs-$GRAPESJS_VERSION/dist/css/grapes.min.css grapesjs/
 RUN cp dist/grapesjs-mjml.min.js  .
 
 RUN echo " juste avant le build, vérification du code source nu : "
@@ -66,4 +66,3 @@ EXPOSE 3000
 
 # CMD ["npm", "run", "start", "--port", "3000"]
 CMD ["node", "index.js"]
-
