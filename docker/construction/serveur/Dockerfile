@@ -31,25 +31,24 @@ RUN npm set init.version="$VERSION_INITIALE_DU_PROJET_PACKAGE_JSON"
 
 
 
-RUN mkdir /grapejs_repo
-WORKDIR /grapejs_repo
+RUN mkdir -p /grapejs_repo
+WORKDIR /grapejs_repo/
 RUN wget https://github.com/artf/grapesjs/archive/v$GRAPESJS_VERSION.zip
 RUN unzip v$GRAPESJS_VERSION.zip || exit 1
 RUN ls -allh
 
-RUN mkdir /mjml_server
-WORKDIR /mjml_server
-
+RUN mkdir -p /mjml_server/public/grapes
+WORKDIR /grapejs_repo
+ADD $NOM_DU_FICHIER_POINT_D_ENTREE .
 # RUN git clone https://github.com/artf/grapesjs-mjml   
 #     https://github.com/artf/grapesjs-mjml  >>>  que j'ai importé dans https://github.com/Jean-Baptiste-Lasselle/grapesjs-mjml
 # RUN git clone https://github.com/Jean-Baptiste-Lasselle/grapesjs-mjml .
 
-# =>> ces fichiers déterminent donc les chemins relatifs de fichiers référecnés dans le index.html
-ADD index.html .
-ADD $NOM_DU_FICHIER_POINT_D_ENTREE .
-RUN mkdir -p grapesjs/
-RUN cp /grapejs_repo/grapesjs-$GRAPESJS_VERSION/dist/grapes.min.js grapesjs/
-RUN cp /grapejs_repo/grapesjs-$GRAPESJS_VERSION/dist/css/grapes.min.css grapesjs/
+# =>> ces fichiers déterminent donc les chemins relatifs de fichiers référencés dans le index.html
+ADD index.html
+RUN mv index.html  ./public/grapes
+RUN cp /grapejs_repo/grapesjs-$GRAPESJS_VERSION/dist/grapes.min.js ./public/grapes
+RUN cp /grapejs_repo/grapesjs-$GRAPESJS_VERSION/dist/css/grapes.min.css ./public/grapes
 
 RUN echo " juste avant le build, vérification du code source nu : "
 RUN tree -allh
