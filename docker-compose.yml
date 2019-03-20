@@ -8,7 +8,8 @@ services:
     image: jbl/mjml:1.0.0
     build: 
       context: ./docker/construction/serveur
-#       args:
+      args:
+        - SOCIALIZED_AUTEUR_DU_PROJET=$SOCIALIZED_AUTEUR_DU_PROJET
         # ENV. USINE LOGICIELLE JAUNE
         # ADD .cle.privee.usine.jaune ./.secret
         # - YELLOW_GIT_SECRET=$YELLOW_GIT_SECRET
