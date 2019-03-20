@@ -146,9 +146,5 @@ npm init --yes
 
 _Quelques morceaux choisis trouvés sur  internet, sur la question_
 
-> If you add the line  "private": true to your package.json file it will prevent you from accidentally submitting the package to the public repository (not that its easy to do by accident).
-> For proprietary projects, I use “LicenseRef-LICENSE” and then create a “LICENSE” file in the project that contains “Copyright © 2017 Acme Inc <name@example.com>”
-
-
-ARG NOM_DU_FICHIER_POINT_D_ENTREE=server.js
-ENV NOM_DU_FICHIER_POINT_D_ENTREE=$NOM_DU_FICHIER_POINT_D_ENTREE
+> If you add the line  `"private": true` to your `package.json` file it will prevent you from accidentally submitting the package to the public repository (not that its easy to do by accident).
+> For proprietary projects, I use `“LicenseRef-LICENSE”` and then create a `“LICENSE”` file in the project that contains `"Copyright © 2017 Acme Inc <name@example.com>”`
