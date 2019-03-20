@@ -10,6 +10,8 @@ ARG GRAPESJS_MJML_MODULE_VERSION=0.0.31
 ARG NOM_DU_PROJET="pegasus-mjml-editor"
 ARG EMAIL_AUTEUR_DU_PROJET="jean.baptiste.lasselle@gmail.com"
 ARG NOM_AUTEUR_DU_PROJET="Jean-Baptiste Lasselle"
+# npm set init.author.url $SOCIALIZED_AUTEUR_DU_PROJET
+ARG SOCIALIZED_AUTEUR_DU_PROJET="https://github.com/Jean-Baptiste-Lasselle"
 ARG LICENCE_DU_PROJET="GNU LGPLv3 wtf"
 ARG VERSION_INITIALE_DU_PROJET_PACKAGE_JSON=0.2.0
 ARG MOTS_CLES_SEMANTIQUE_PROJET="mjml, editor, email, template"
@@ -20,11 +22,13 @@ ARG BUGS_REFERENCE_FILE=THIS_RELESASES_BUGSLIST.md
 
 RUN apk update && apk add git tree unzip
 
-
+RUN echo "checking all npm init config options "
+RUN npm help 7 config
 # Set up rapide du projet NodeJS
 RUN npm set init.name "$NOM_DU_PROJET"
 RUN npm set init.author.email "$EMAIL_AUTEUR_DU_PROJET"
 RUN npm set init.author.name "$NOM_AUTEUR_DU_PROJET"
+RUN npm set init.author.url "$SOCIALIZED_AUTEUR_DU_PROJET"
 RUN npm set init.license "$LICENCE_DU_PROJET"
 RUN npm set init.version="$VERSION_INITIALE_DU_PROJET_PACKAGE_JSON"
 
