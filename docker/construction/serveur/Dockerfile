@@ -10,14 +10,17 @@ ARG GRAPESJS_MJML_MODULE_VERSION=0.0.31
 ARG NOM_DU_PROJET="pegasus-mjml-editor"
 ARG EMAIL_AUTEUR_DU_PROJET="jean.baptiste.lasselle@gmail.com"
 ARG NOM_AUTEUR_DU_PROJET="Jean-Baptiste Lasselle"
-# npm set init.author.url $SOCIALIZED_AUTEUR_DU_PROJET
 ARG SOCIALIZED_AUTEUR_DU_PROJET="https://github.com/Jean-Baptiste-Lasselle"
 ARG LICENCE_DU_PROJET="GNU LGPLv3 wtf"
 ARG VERSION_INITIALE_DU_PROJET_PACKAGE_JSON=0.2.0
 ARG MOTS_CLES_SEMANTIQUE_PROJET="mjml, editor, email, template"
-ARG NOM_DU_FICHIER_POINT_D_ENTREE=server.js
-# le nom du fichier de coueemntation précisant les bugs, bref il s'agti de traçabilité du traitment des bugs
+# le nom du fichier de documentation précisant les 'known bugs', bref il s'agit de traçabilité du traitment des bugs
 ARG BUGS_REFERENCE_FILE=THIS_RELESASES_BUGSLIST.md
+
+ARG NOM_DU_FICHIER_POINT_D_ENTREE=server.js
+ENV NOM_DU_FICHIER_POINT_D_ENTREE=$NOM_DU_FICHIER_POINT_D_ENTREE
+
+
 
 
 RUN apk update && apk add git tree unzip
@@ -88,4 +91,4 @@ EXPOSE 3000
 ENV HOST=0.0.0.0
 ENV PORT=3000
 
-CMD ["node", "server.js"]
+CMD ["node", "$NOM_DU_FICHIER_POINT_D_ENTREE"]
