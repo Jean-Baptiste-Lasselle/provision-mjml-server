@@ -48,7 +48,9 @@ Est-il possible de définir l'URL du repository git versionnant le code source d
 Si l'on exécute :
 
 ```bash
-npm set init.name bernard
+npm set init.name "bernard"
+npm set init.version "0.2.0"
+
 
 npm init --yes
 ```
@@ -61,7 +63,7 @@ On génère un fichier `package.json` contenant  :
     [...] Il peut y avoir bien d'autres éléments de configuration dans
         les fichiers package.json que vosu rencontrez chaque jour
    */
-   "version": "0.0.0"
+   "version": "0.2.0"
 }
 
 ```
