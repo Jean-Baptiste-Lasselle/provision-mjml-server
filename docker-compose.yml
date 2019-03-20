@@ -10,6 +10,7 @@ services:
       context: ./docker/construction/serveur
       args:
         - SOCIALIZED_AUTEUR_DU_PROJET=$SOCIALIZED_AUTEUR_DU_PROJET
+        - NOM_DU_FICHIER_POINT_D_ENTREE=$NOM_DU_FICHIER_POINT_D_ENTREE
         # ENV. USINE LOGICIELLE JAUNE
         # ADD .cle.privee.usine.jaune ./.secret
         # - YELLOW_GIT_SECRET=$YELLOW_GIT_SECRET
@@ -18,8 +19,8 @@ services:
 #          donc conflit de droits avec le SGF de l'hôte docker
 #     volumes:
 #       - $AVOIR:$IN_CONTAINER_WHATEVER_DIRECTORY:rw
-#     environment:
-#       - YELLOW_OPERATOR_USER_NAME=$YELLOW_OPERATOR_USER_NAME
+    environment:
+      - NOM_DU_FICHIER_POINT_D_ENTREE=$NOM_DU_FICHIER_POINT_D_ENTREE
     ports:
       # - $NUM_PORT_ECOUTE_FRONTEND_APPLI_VOTE:$NUM_PORT_ECOUTE_FRONTEND_APPLI_VOTE_IN_CONTAINER
       - 5698:3000
