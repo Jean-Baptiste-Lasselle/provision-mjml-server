@@ -57,8 +57,10 @@ On génère un fichier `package.json` contenant  :
 ```json
 {
   "name": "bernard",
-  // [...] Il peut y avoir bien d'autres éléments de configuration dans
-  //       les fichiers package.json que vosu rencontrez chaque jour
+  /***
+   *  [...] Il peut y avoir bien d'autres éléments de configuration dans
+   *      les fichiers package.json que vosu rencontrez chaque jour
+   ***/
 }
 
 ```
